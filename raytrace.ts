@@ -1,51 +1,51 @@
-// input.onButtonPressed(Button.A, function () {
-//     const direction = rotateInY({ x: -1, y: 0, z: 0 }, cameraYaw);
-//     cameraCoord.x += direction.x;
-//     cameraCoord.y += direction.y;
-//     cameraCoord.z += direction.z;
-//     render()
-// })
-// input.onButtonPressed(Button.B, function () {
-//     const direction = rotateInY({ x: 1, y: 0, z: 0 }, cameraYaw);
-//     cameraCoord.x += direction.x;
-//     cameraCoord.y += direction.y;
-//     cameraCoord.z += direction.z;
-//     render()
-// })
-// input.onButtonPressed(Button.AB, function () {
-//     const direction = rotateInY({ x: 0, y: 0, z: 1 }, cameraYaw);
-//     cameraCoord.x += direction.x;
-//     cameraCoord.y += direction.y;
-//     cameraCoord.z += direction.z;
-//     render()
-// })
-// input.onGesture(Gesture.TiltLeft, function () {
-//     cameraYaw += 0.25
-//     render();
-// })
-// input.onGesture(Gesture.TiltRight, function () {
-//     cameraYaw -= 0.25;
-//     render();
-// })
-// input.onGesture(Gesture.LogoDown, function () {
-//     cameraPitch -= 0.25;
-//     render();
-// })
-// input.onGesture(Gesture.LogoUp, function () {
-//     cameraPitch += 0.25;
-//     render();
-// })
+input.onButtonPressed(Button.A, function () {
+    const direction = rotateInY({ x: -1, y: 0, z: 0 }, cameraYaw);
+    cameraCoord.x += direction.x;
+    cameraCoord.y += direction.y;
+    cameraCoord.z += direction.z;
+    render()
+})
+input.onButtonPressed(Button.B, function () {
+    const direction = rotateInY({ x: 1, y: 0, z: 0 }, cameraYaw);
+    cameraCoord.x += direction.x;
+    cameraCoord.y += direction.y;
+    cameraCoord.z += direction.z;
+    render()
+})
+input.onButtonPressed(Button.AB, function () {
+    const direction = rotateInY({ x: 0, y: 0, z: 1 }, cameraYaw);
+    cameraCoord.x += direction.x;
+    cameraCoord.y += direction.y;
+    cameraCoord.z += direction.z;
+    render()
+})
+input.onGesture(Gesture.TiltLeft, function () {
+    cameraYaw += 0.25
+    render();
+})
+input.onGesture(Gesture.TiltRight, function () {
+    cameraYaw -= 0.25;
+    render();
+})
+input.onGesture(Gesture.LogoDown, function () {
+    cameraPitch -= 0.25;
+    render();
+})
+input.onGesture(Gesture.LogoUp, function () {
+    cameraPitch += 0.25;
+    render();
+})
 function resetPixels() {
     for (let i = 0; i <= 25 - 1; i++) {
         pixelLightLevel[i] = 0;
     }
-    // basic.clearScreen();
+    basic.clearScreen();
 }
 function display() {
     const maxBrightness = cameraRays * cameraRays;
     for (let i = 0; i < 25; i++) {
             const normalised = 255 * pixelLightLevel[i] / maxBrightness;
-            // led.plotBrightness(i % 5, i / 5, normalised);
+            led.plotBrightness(i % 5, i / 5, normalised);
     }
 }
 
@@ -153,7 +153,6 @@ function computePlane(triangle: TriangleCoords): Plane {
         k: constant
     }
 }
-// console.log("LED " + i % 5 + "," + Math.floor(i / 5) + " is " + normalised);
 
 function getScale(plane: Plane, angle: Vector3): number {
     return plane.a * angle.x +
@@ -245,7 +244,6 @@ type Triangle = {
     min: Vector3;
     max: Vector3;
 }
-// A plane in the form aX + bY + cD + k = 0
 type Plane = {
     a: number;
     b: number;
