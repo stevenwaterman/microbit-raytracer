@@ -338,9 +338,9 @@ const dim = 0.05;
 
 const triangleCoords: TriangleCoords[] = [
     { c1: { x: -1, y: 0, z: 2 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 2 }, brightness: bright },
-    { c1: { x: -1, y: 0, z: 4 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 4 }, brightness: dim },
+    { c1: { x: -1, y: 0, z: 4 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 4 }, brightness: bright },
     { c1: { x: -1, y: 0, z: 2 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: -1, y: 0, z: 4 }, brightness: dim },
-    { c1: { x: 1, y: 0, z: 2 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 4 }, brightness: bright }
+    { c1: { x: 1, y: 0, z: 2 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 4 }, brightness: dim }
 ];
 const triangles: Triangle[] = triangleCoords.map((triangle: TriangleCoords) => ({
     brightness: triangle.brightness,
@@ -359,9 +359,9 @@ const triangles: Triangle[] = triangleCoords.map((triangle: TriangleCoords) => (
         z: apply(Math.max, triangle.c1.z, triangle.c2.z, triangle.c3.z)
     }
 }));
-const cameraCoord = { x: 0, y: -1, z: -1.5 };
+const cameraCoord = { x: 4, y: -1, z: -1 };
 let cameraPitch = 0;
-let cameraYaw = 0;
+let cameraYaw = -0.25 * Math.PI;
 const pixelLightLevel: number[] = [];
 const viewWidth = 0.5;
 
