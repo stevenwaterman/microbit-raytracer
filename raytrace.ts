@@ -1,69 +1,69 @@
-// For the browser version, uncomment from here
-// const Button = {
-//     A: "a",
-//     B: "b",
-//     AB: "ab"
-// } as const;
-// const Gesture = {
-//     TiltLeft: "tiltLeft",
-//     TiltRight: "tiltRight",
-//     LogoUp: "logoUp",
-//     LogoDown: "logoDown"
-// } as const;
-// let pressA: () => void;
-// let pressB: () => void;
-// let pressAB: () => void;
-// let tiltLeft: () => void;
-// let tiltRight: () => void;
-// let logoUp: () => void;
-// let logoDown: () => void;
-// const input = {
-//     onButtonPressed: (button: typeof Button[keyof typeof Button], func: () => void) => {
-//         if (button === Button.A) {
-//             pressA = func;
-//         }
-//         if (button === Button.B) {
-//             pressB = func;
-//         }
-//         if (button === Button.AB) {
-//             pressAB = func;
-//         }
-//     },
-//     onGesture: (gesture: typeof Gesture[keyof typeof Gesture], func: () => void) => {
-//         if (gesture === Gesture.TiltLeft) {
-//             tiltLeft = func;
-//         }
-//         if (gesture === Gesture.TiltRight) {
-//             tiltRight = func;
-//         }
-//         if (gesture === Gesture.LogoUp) {
-//             logoUp = func;
-//         }
-//         if (gesture === Gesture.LogoDown) {
-//             logoDown = func;
-//         }
-//     }
-// };
-// const basic = {
-//     clearScreen: () => {
-//         const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-//         const ctx = canvas.getContext("2d");
-//         ctx.clearRect(0, 0, screenSize, screenSize);
-//     }
-// };
-// const led = {
-//     plotBrightness: (x, y, brightness) => {
-//         const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-//         const ctx = canvas.getContext("2d");
-//         ctx.fillStyle = "rgb(" + brightness + ", 0, 0)";
-//         ctx.fillRect(x, y, 1, 1);
-//     }
-// };
-// const cameraRays = 3;
-// const screenSize = 200;
-// const bright = 1;
-// const dim = 0.4;
-// To here
+/* For the browser version, uncomment from here
+const Button = {
+    A: "a",
+    B: "b",
+    AB: "ab"
+} as const;
+const Gesture = {
+    TiltLeft: "tiltLeft",
+    TiltRight: "tiltRight",
+    LogoUp: "logoUp",
+    LogoDown: "logoDown"
+} as const;
+let pressA: () => void;
+let pressB: () => void;
+let pressAB: () => void;
+let tiltLeft: () => void;
+let tiltRight: () => void;
+let logoUp: () => void;
+let logoDown: () => void;
+const input = {
+    onButtonPressed: (button: typeof Button[keyof typeof Button], func: () => void) => {
+        if (button === Button.A) {
+            pressA = func;
+        }
+        if (button === Button.B) {
+            pressB = func;
+        }
+        if (button === Button.AB) {
+            pressAB = func;
+        }
+    },
+    onGesture: (gesture: typeof Gesture[keyof typeof Gesture], func: () => void) => {
+        if (gesture === Gesture.TiltLeft) {
+            tiltLeft = func;
+        }
+        if (gesture === Gesture.TiltRight) {
+            tiltRight = func;
+        }
+        if (gesture === Gesture.LogoUp) {
+            logoUp = func;
+        }
+        if (gesture === Gesture.LogoDown) {
+            logoDown = func;
+        }
+    }
+};
+const basic = {
+    clearScreen: () => {
+        const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, screenSize, screenSize);
+    }
+};
+const led = {
+    plotBrightness: (x, y, brightness) => {
+        const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(" + brightness + ", 0, 0)";
+        ctx.fillRect(x, y, 1, 1);
+    }
+};
+const cameraRays = 3;
+const screenSize = 200;
+const bright = 1;
+const dim = 0.4;
+ To here */
 
 
 
@@ -359,7 +359,7 @@ const triangles: Triangle[] = triangleCoords.map((triangle: TriangleCoords) => (
         z: apply(Math.max, triangle.c1.z, triangle.c2.z, triangle.c3.z)
     }
 }));
-const cameraCoord = { x: 4, y: -1, z: -1 };
+const cameraCoord = { x: 2.5, y: -1, z: 0 };
 let cameraPitch = 0;
 let cameraYaw = -0.25 * Math.PI;
 const pixelLightLevel: number[] = [];
