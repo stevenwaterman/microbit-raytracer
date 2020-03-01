@@ -1,68 +1,68 @@
 // For the browser version, uncomment from here
-// const Button = {
-//     A: "a",
-//     B: "b",
-//     AB: "ab"
-// } as const;
-// const Gesture = {
-//     TiltLeft: "tiltLeft",
-//     TiltRight: "tiltRight",
-//     LogoUp: "logoUp",
-//     LogoDown: "logoDown"
-// } as const;
-// let pressA: () => void;
-// let pressB: () => void;
-// let pressAB: () => void;
-// let tiltLeft: () => void;
-// let tiltRight: () => void;
-// let logoUp: () => void;
-// let logoDown: () => void;
-// const input = {
-//     onButtonPressed: (button: typeof Button[keyof typeof Button], func: () => void) => {
-//         if (button === Button.A) {
-//             pressA = func;
-//         }
-//         if (button === Button.B) {
-//             pressB = func;
-//         }
-//         if (button === Button.AB) {
-//             pressAB = func;
-//         }
-//     },
-//     onGesture: (gesture: typeof Gesture[keyof typeof Gesture], func: () => void) => {
-//         if (gesture === Gesture.TiltLeft) {
-//             tiltLeft = func;
-//         }
-//         if (gesture === Gesture.TiltRight) {
-//             tiltRight = func;
-//         }
-//         if (gesture === Gesture.LogoUp) {
-//             logoUp = func;
-//         }
-//         if (gesture === Gesture.LogoDown) {
-//             logoDown = func;
-//         }
-//     }
-// };
-// const basic = {
-//     clearScreen: () => {
-//         const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-//         const ctx = canvas.getContext("2d");
-//         ctx.clearRect(0, 0, screenSize, screenSize);
-//     }
-// };
-// const led = {
-//     plotBrightness: (x, y, brightness) => {
-//         const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-//         const ctx = canvas.getContext("2d");
-//         ctx.fillStyle = "rgb(" + brightness + ", 0, 0)";
-//         ctx.fillRect(x, y, 1, 1);
-//     }
-// };
-// const cameraRays = 3;
-// const screenSize = 200;
-// const bright = 1;
-// const dim = 0.4;
+var Button = {
+    A: "a",
+    B: "b",
+    AB: "ab"
+};
+var Gesture = {
+    TiltLeft: "tiltLeft",
+    TiltRight: "tiltRight",
+    LogoUp: "logoUp",
+    LogoDown: "logoDown"
+};
+var pressA;
+var pressB;
+var pressAB;
+var tiltLeft;
+var tiltRight;
+var logoUp;
+var logoDown;
+var input = {
+    onButtonPressed: function (button, func) {
+        if (button === Button.A) {
+            pressA = func;
+        }
+        if (button === Button.B) {
+            pressB = func;
+        }
+        if (button === Button.AB) {
+            pressAB = func;
+        }
+    },
+    onGesture: function (gesture, func) {
+        if (gesture === Gesture.TiltLeft) {
+            tiltLeft = func;
+        }
+        if (gesture === Gesture.TiltRight) {
+            tiltRight = func;
+        }
+        if (gesture === Gesture.LogoUp) {
+            logoUp = func;
+        }
+        if (gesture === Gesture.LogoDown) {
+            logoDown = func;
+        }
+    }
+};
+var basic = {
+    clearScreen: function () {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, screenSize, screenSize);
+    }
+};
+var led = {
+    plotBrightness: function (x, y, brightness) {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(" + brightness + ", 0, 0)";
+        ctx.fillRect(x, y, 1, 1);
+    }
+};
+var cameraRays = 3;
+var screenSize = 200;
+var bright = 1;
+var dim = 0.4;
 // To here
 input.onButtonPressed(Button.A, function () {
     var direction = rotateInY({ x: -0.5, y: 0, z: 0 }, cameraYaw);
@@ -268,10 +268,10 @@ function apply(func, a, b, c) {
     return func(a, func(b, c));
 }
 // For microbit, uncomment from here to bottom
-var cameraRays = 1;
-var screenSize = 5;
-var bright = 1;
-var dim = 0.05;
+//const cameraRays = 1;
+//const screenSize = 5;
+//const bright = 1;
+//const dim = 0.05;
 // To here
 var triangleCoords = [
     { c1: { x: -1, y: 0, z: 2 }, c2: { x: 0, y: -2, z: 3 }, c3: { x: 1, y: 0, z: 2 }, brightness: bright },
@@ -296,9 +296,9 @@ var triangles = triangleCoords.map(function (triangle) { return ({
         z: apply(Math.max, triangle.c1.z, triangle.c2.z, triangle.c3.z)
     }
 }); });
-var cameraCoord = { x: 4, y: -1, z: -1 };
+var cameraCoord = { x: 2.5, y: -1, z: 0 };
 var cameraPitch = 0;
 var cameraYaw = -0.25 * Math.PI;
 var pixelLightLevel = [];
 var viewWidth = 0.5;
-render();
+//render();
